@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   /* Pone la misma fuente de letra para toda la página */
-  font-family: "Montserrat";
+  font-family: sans-serif;
 }
 
 :root {

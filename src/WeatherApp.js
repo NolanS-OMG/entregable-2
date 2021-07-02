@@ -95,9 +95,9 @@ const WeatherApp = () => {
                     <h4>{tempShowed}</h4>
                 </div>
                 <div>
-                    <p><span>Wind speed: {info.wind_speed}</span></p>
-                    <p><span>Clouds: {info.clouds}</span></p>
-                    <p><span>Pressure: {info.pressure}</span></p>
+                    <p><span><b>Wind speed: </b>{info.wind_speed}</span></p>
+                    <p><span><b>Clouds: </b>{info.clouds}</span></p>
+                    <p><span><b>Pressure: </b>{info.pressure}</span></p>
                 </div>
             </div>
             <div className = "buttons-container">
