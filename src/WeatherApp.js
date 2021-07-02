@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const WeatherApp = () => {
     // Recoge los datos del clima según la pocisión
     const getWeather = async (coords) => {
-        const url = `http://api.weatherapi.com/v1/current.json?key=021a1f5a9a0446cc9cb24347210207&q=${coords}&aqi=yes`;
+        const url = `https://api.weatherapi.com/v1/current.json?key=021a1f5a9a0446cc9cb24347210207&q=${coords}&aqi=no`;
     
         const data = await fetch(url).then(res => res.json());
       
