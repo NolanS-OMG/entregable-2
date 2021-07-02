@@ -1,13 +1,105 @@
-body {
+/* RESETS */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  /* Pone la misma fuente de letra para toda la página */
+  font-family: "Montserrat";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: #00ff80;
+  --secondary-color: #ebfff5;
+  --border-color: #002914;
+  --font-color: #00974c;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p span {
+  width: 100%;
+  text-align: left;
+}
+
+
+.weather-app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  background-color: var(--primary-color);
+}
+
+.weather-app {
+  margin: auto;
+  width: 35%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--secondary-color);
+  border: solid 1px var(--border-color);
+  border-radius: 7px;
+  color: var(--font-color);
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.weather-info div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weather-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-image-container img {
+  width: 100%;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.buttons-container button {
+  width: 30%;
+  padding: 1%;
+  margin: 2%;
+
+  background-color: #00974c;
+  color: var(--secondary-color);
+
+  border: solid 1px var(--border-color);
+  border-radius: 5px;
+}
+
+.buttons-container button:hover {
+  background-color: #006b47;
+}
+
+.buttons-container button:active {
+  background-color: #00a854;
 }
