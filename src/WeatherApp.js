@@ -39,6 +39,26 @@ const WeatherApp = () => {
     // Estado para mostrar la temperatura sean celcius o farenheit
     const [tempShowed, setTempShowed] = useState("");
 
+    // Contiene el display del texto Loading...
+    const [loadingDisplay, setLoadingDisplay] = useState("block");
+
+    // Contiene el display de los datos de la app
+    const [appDisplay, setAppDisplay] = useState("none");
+
+    // Estado para animar el text loading...
+    const [loadingText, setLoadingText] = useState("LOADING");
+
+    // Este efecto se estará repitiendo, crea la animación del texto Loading...
+    useEffect( () => {
+        setTimeout( () => {
+            if (loadingText.slice(7,loadingText.length) === "...") {
+                setLoadingText("LOADING");
+            } else {
+                setLoadingText(loadingText + ".");
+            }
+        }, 300 )
+    }, [loadingText] )
+
     // Este efecto busca el dispositivo, cuando lo encuentra obtiene los datos de su clima, y después los guarda en info
     // (por su naturaleza, esta función se ejecuta 3 veces al iniciar la página)
     useEffect(() => {
@@ -68,6 +88,10 @@ const WeatherApp = () => {
                     pressure: `${weather.current.pressure_mb} mb`,
                     icon: weather.current.condition.icon
                 })
+
+                // Como weather ya tiene datos, es momento de mostrarlos
+                setLoadingDisplay("none");
+                setAppDisplay("flex");
             }
         }
         findPlace();
@@ -82,11 +106,14 @@ const WeatherApp = () => {
 
     return (
         <div className = "weather-app">
-            <div className = "weather-titles">
+            <div style = {{display: loadingDisplay}}>
+                <h4>{loadingText}</h4>
+            </div>
+            <div style = {{display: appDisplay}} className = "weather-titles">
                 <h1>Weather App</h1>
                 <h3>{info.city}</h3>
             </div>
-            <div className = "weather-info">
+            <div style = {{display: appDisplay}} className = "weather-info">
                 <div>
                     <h6>{info.state}</h6>
                     <div className = "weather-image-container">
@@ -100,7 +127,7 @@ const WeatherApp = () => {
                     <p><span><b>Pressure: </b>{info.pressure}</span></p>
                 </div>
             </div>
-            <div className = "buttons-container">
+            <div style = {{display: appDisplay}} className = "buttons-container">
                 <button onClick = { () => {
                     if ('geolocation' in navigator) {
                         navigator.geolocation.getCurrentPosition( success, error );
